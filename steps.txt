@@ -1,0 +1,31 @@
+in an empty folder open vs code 
+open terminal
+python -m venv .venv
+. .venv\Scripts\activate
+django-admin startproject demo .
+python manage.py runserver #to test django server is running or not
+open new terminal repeat step 4
+pip install gunicorn # it'll create server while deployement
+pip install dj-database-url #to parse external database url
+
+in urls.py
+import 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+add this line 
+urlpatterns +=staticfiles_urlpatterns()
+
+in setting file 
+import dj_database_url
+add this line
+STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+
+Comment or remove database code 
+enter this line
+DATABASES={
+    "default": dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+
+in terminal in order to check if db is working type
+ set DATABASE_URL= #copy the url from render create postgressdb and from general copy external database url
+ for linux replace set with export
