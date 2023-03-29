@@ -29,3 +29,12 @@ DATABASES={
 in terminal in order to check if db is working type
  set DATABASE_URL= #copy the url from render create postgressdb and from general copy external database url
  for linux replace set with export
+
+add code to github 
+in render new webservice 
+app name
+in start command add
+gunicorn demo.wsgi:application
+add environment 
+DATABASE_URL #this time add insider url
+PYTHON_VERSION 3.11.2
